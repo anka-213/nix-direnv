@@ -1,6 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 with pkgs;
+let nix = nixFlakes; in
 stdenv.mkDerivation {
   name = "nix-direnv";
 
