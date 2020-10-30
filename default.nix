@@ -1,7 +1,6 @@
 { pkgs ? import <nixpkgs> {} }:
 
 with pkgs;
-let nix = nixFlakes; in
 stdenv.mkDerivation {
   name = "nix-direnv";
 
@@ -10,7 +9,7 @@ stdenv.mkDerivation {
   postPatch = ''
     substituteInPlace direnvrc \
       --replace "grep" "${gnugrep}/bin/grep" \
-      --replace "my-nix-command" "${nix}/bin/nix" \
+      --replace "my-nix-command" "${nixFlakes}/bin/nix" \
       --replace "nix-shell" "${nix}/bin/nix-shell" \
       --replace "nix-instantiate" "${nix}/bin/nix-instantiate"
   '';
