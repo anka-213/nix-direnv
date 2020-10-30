@@ -10,6 +10,7 @@ stdenv.mkDerivation {
   postPatch = ''
     substituteInPlace direnvrc \
       --replace "grep" "${gnugrep}/bin/grep" \
+      --replace "nix" "${nix}/bin/nix" \
       --replace "nix-shell" "${nix}/bin/nix-shell" \
       --replace "nix-instantiate" "${nix}/bin/nix-instantiate"
   '';
